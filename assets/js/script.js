@@ -134,9 +134,10 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-  document.getElementById("operand1").textContent =
-    operand1 > operand2 ? operand1 : operand2;
-  document.getElementById("operand2").textContent =
-    operand1 > operand2 ? operand2 : operand1;
+  let largerNumber = operand1 > operand2 ? operand1 : operand2;
+  let smallerNumber = operand1 > operand2 ? operand2 : operand1;
+  let divisible = largerNumber - (largerNumber % smallerNumber);
+  document.getElementById("operand1").textContent = divisible;
+  document.getElementById("operand2").textContent = smallerNumber;
   document.getElementById("operator").textContent = "/";
 }
